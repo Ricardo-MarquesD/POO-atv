@@ -1,16 +1,16 @@
 package biblioteca.modelos;
 
-public abstract class PublicacaoDigital extends Publicacao {
+public abstract class DigitalPublication extends Publication {
 
     // Atributo característico de publicações digitais
-    protected int tamanhoEmMB;
+    protected int sizeMB;
 
     // Getter e Setter para o tamanho do arquivo digital
     public int getTamanhoEmMB() {
-        return tamanhoEmMB;
+        return sizeMB;
     }
-    public void setTamanhoEmMB(int tamanhoEmMB) {
-        this.tamanhoEmMB = tamanhoEmMB;
+    public void setTamanhoEmMB(int sizeMB) {
+        this.sizeMB = sizeMB;
     }
 
     /*
@@ -18,7 +18,7 @@ public abstract class PublicacaoDigital extends Publicacao {
      * como será feito o "download" (mas cada subclasse pode
      * implementar de maneira diferente).
      */
-    public abstract void baixar();
+    public abstract void download();
 
     /*
      * Podemos sobrescrever alguns métodos de Publicacao se quisermos,
@@ -26,10 +26,10 @@ public abstract class PublicacaoDigital extends Publicacao {
      * que mostra que agora a "ficha literária" exibe também o tamanho do arquivo.
      */
     @Override
-    public void exibeFichaLiteraria() {
+    public void exhibtBookInfo() {
         // Chama a exibição base da classe pai (exibe título, autor, etc.)
-        super.exibeFichaLiteraria();
+        super.exhibtBookInfo();
         // Acrescenta detalhes da publicação digital
-        System.out.println("Tamanho do arquivo: " + this.tamanhoEmMB + " Mb");
+        System.out.println("Tamanho do arquivo: " + this.sizeMB + " Mb");
     }
 }

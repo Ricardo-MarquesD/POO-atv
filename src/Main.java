@@ -5,7 +5,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 
-public class Principal {
+public class Main {
     public static void main(String[] args) throws Exception {
         /*
          ============================
@@ -16,19 +16,9 @@ public class Principal {
         /* Aqui, try engloba o processo de criação do objeto.
         Se uma exceção for lançada (por exemplo, com número de páginas negativo), o catch a tratará.
         O finally garante que o sistema finalize algo, mesmo em caso de erro. */
-
-        Livro meuLivro = null;
+        
+        Book book1 = new Book("Harry Potter e a Pedra Filosofal", "J. K. Rowlling", "Rocco", 208, 1, "9780545069670","Fantasia", 17);
         try {
-            meuLivro = new Livro();
-            meuLivro.setTitulo("Harry Potter e a Pedra Filosofal");
-            meuLivro.setAutor("J. K. Rowlling");
-            meuLivro.setEditora("Rocco");
-            meuLivro.setGenero("Fantasia");
-            meuLivro.setNumeroDePaginas(208); // valor válido
-            meuLivro.setNumeroDeCapitulos(17);
-            meuLivro.setIsbn("9780545069670");
-            meuLivro.setVolume(1);
-            meuLivro.geraVersaoDigital();
         } catch (IllegalArgumentException e) {
             System.out.println("Erro ao criar o livro: " + e.getMessage());
         } finally {
@@ -36,23 +26,23 @@ public class Principal {
         }
 
         // Avaliando usando sobrecarga (overload):
-        meuLivro.avalia(9); // chamará avalia(int nota)
-        meuLivro.avalia(10.0); // chamará avalia(double nota)
-        meuLivro.avalia(8.5); // idem avalia(double nota)
+        book1.avalia(9); // chamará avalia(int nota)
+        book1.avalia(10.0); // chamará avalia(double nota)
+        book1.avalia(8.5); // idem avalia(double nota)
 
         // Avaliando usando try-catch
         try {
-            meuLivro.avaliaComValidacao(12); // nota inválida
+            myBook.avaliaComValidacao(12); // nota inválida
         } catch (Exception e) {
             System.out.println("Erro ao avaliar: " + e.getMessage());
         }
 
         double[] notasLivro = {9.2, 8.8, 10};
-        meuLivro.avalia(notasLivro); // chamará avalia(double[])
+        myBook.avalia(notasLivro); // chamará avalia(double[])
 
         // Exibe a ficha literária (override) e a média de avaliações
-        meuLivro.exibeFichaLiteraria();
-        System.out.println("Avaliação: " + meuLivro.retornaMedia());
+        myBook.exibeFichaLiteraria();
+        System.out.println("Avaliação: " + myBook.retornaMedia());
 
         /*
          ==============================
@@ -135,7 +125,7 @@ public class Principal {
         // 1) ARMAZENANDO PUBLICAÇÕES EM UMA LISTA (ArrayList)
         // =========================================================
         List<Publicacao> listaPublicacoes = new ArrayList<>();
-        listaPublicacoes.add(meuLivro);
+        listaPublicacoes.add(myBook);
         listaPublicacoes.add(minhaRevista);
         listaPublicacoes.add(meuEbook);
 
@@ -154,7 +144,7 @@ public class Principal {
         // 2) BUSCA DE PUBLICAÇÃO POR CÓDIGO (HashMap)
         // =========================================================
         HashMap<Integer, Publicacao> mapaPublicacoes = new HashMap<>();
-        mapaPublicacoes.put(101, meuLivro);
+        mapaPublicacoes.put(101, myBook);
         mapaPublicacoes.put(102, minhaRevista);
         mapaPublicacoes.put(103, meuEbook);
 
