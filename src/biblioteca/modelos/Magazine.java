@@ -11,7 +11,6 @@ public class Magazine extends Publication implements Digitalization {
         this.subject = subject;
         this.issn = issn;
         this.numberOfArticles = numberOfArticles;
-        
     }
 
     public String getEdition() {
@@ -25,18 +24,6 @@ public class Magazine extends Publication implements Digitalization {
     }
     public int getNumberOfArticles() {
         return numberOfArticles;
-    }
-    public void setEdition(String edition) {
-        this.edition = edition;
-    }
-    public void setSubject(String subject) {
-        this.subject = subject;
-    }
-    public void setIssn(String issn) {
-        this.issn = issn;
-    }
-    public void setNumberOfArticles(int numberOfArticles) {
-        this.numberOfArticles = numberOfArticles;
     }
 
     @Override

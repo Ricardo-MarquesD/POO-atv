@@ -20,11 +20,6 @@ public abstract class DigitalPublication extends Publication {
      */
     public abstract void download();
 
-    /*
-     * Podemos sobrescrever alguns métodos de Publicacao se quisermos,
-     * mas não somos obrigados. Vou dar um exemplo de sobrescrita simples
-     * que mostra que agora a "ficha literária" exibe também o tamanho do arquivo.
-     */
     @Override
     public void exhibtBookInfo() {
         // Chama a exibição base da classe pai (exibe título, autor, etc.)
