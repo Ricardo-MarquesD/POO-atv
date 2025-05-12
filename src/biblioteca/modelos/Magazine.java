@@ -1,16 +1,20 @@
 package biblioteca.modelos;
 public class Magazine extends Publication implements Digitalization {
-    // Atributos específicos de Revista
     private String edition;
     private String subject;
     private String issn;
     private int numberOfArticles;
-
-    public Magazine(String edition, String subject, String issn, int numberOfArticles){
-        this.edition = edition;
-        this.subject = subject;
-        this.issn = issn;
-        this.numberOfArticles = numberOfArticles;
+        
+    public Magazine(String title, String author, String editor, int pages, String edition, String subject, String issn, int numberOfArticles){
+        super(title, author, editor, pages);
+        try{
+            this.edition = edition;
+            this.subject = subject;
+            this.issn = issn;
+            this.numberOfArticles = numberOfArticles;
+        }catch(IllegalArgumentException e){
+            System.err.println("Input Magazine() values is invalid: " + e.getMessage());
+        }
     }
 
     public String getEdition() {
